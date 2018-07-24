@@ -1,0 +1,9 @@
+- Task 1 --> Create docker repository from the url.
+
+- Task 2 --> Install docker package along with its dependencies.
+
+- Task 3 --> Start and enable required services.
+
+- Task 4 --> Verify docker is running.
+
+- Task 5 --> Explore docker file locations along with some basic docker commands.

@@ -1,0 +1,25 @@
+Solutions:
+
+Task 1 -
+# wget https://download.docker.com/linux/centos/docker-ce.repo -P /etc/yum.repos.d/
+
+Task 2 -
+# yum install -y lvm2 device-mapper-persistent-data
+# yum install -y docker-ce
+
+Task 3 -
+# systemctl start docker && systemctl enable docker
+
+Task 4 -
+# systemctl status docker
+
+Task 5 -
+## Review files and directories briefly in following locations :
+/var/lib/docker
+/etc/sysconfig/docker*
+/usr/lib/systemd/system/docker.service
+
+## Try basic docker commands and review briefly
+docker version
+docker info 
+docker system df
