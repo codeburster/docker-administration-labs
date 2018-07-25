@@ -1,0 +1,16 @@
+- Task 1 -->  Build an ubuntu 16.04 image with following requirements :
+	a)  apache2 and net-tools package should be installed
+	b)  check the network configuration in container
+	c)  Build image from that container with following details:
+		i)  author should "YOUR NAME"
+		ii) comment should be "A custom ubuntu image with apache2"
+
+- Task 2 --> Build an image using Dockerfile with following requirements :
+	a)  from image ubuntu 14.04
+	b)  Add maintainer as "Your Name"
+	c)  Update the ubuntu and install nginx
+	d)  web server should display "Hi, I am in your container" when access via curl or from browser.
+	e)  Container should expose port 80
+	f)  Image should be tagged in following format "Docker_hub_ursername/your_image_name"
+
+- Task 3 --> Launch a container from the image built in Task 2 and verify is web page is accesible via curl.

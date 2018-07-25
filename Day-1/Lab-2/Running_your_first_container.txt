@@ -1,0 +1,20 @@
+- Task 1 --> Create a container using hello-world image
+
+- Task 2 --> Create a container using ubuntu image such that :
+	a)  /bin/bash is executed inside container in interactive way
+	b)  Name the container as bob_the_container
+
+- Task 3 --> Verify information related to container :
+	a)  list running containers
+	b)  list all contianers
+	c)  Stop the container
+	d)  Start the container
+	e)  Connect to the container
+
+- Task 4 --> Create a container in daemon mode
+	a)  use ubuntu image
+	b)  check whats happening inside container
+	c)  check process status inside the container
+	d)  Inspect the container
+
+- Task 5 --> Delete the containers created in this exercise.
