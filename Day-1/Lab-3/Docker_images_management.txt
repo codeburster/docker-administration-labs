@@ -1,5 +1,9 @@
-- Task 1 --> List all images available locally
+- Task 1 --> List all images available locally.
 
-- Task 2 --> Fetch fedora image from docker hub
+- Task 2 --> Fetch fedora image from docker hub.
 
-- Task 3 --> Search for available puppet images in docker hub
+- Task 3 --> Search for available puppet images in docker hub.
+
+- Task 4 --> Check layers in the puppet image from docker hub.
+
+- Task 5 --> 
