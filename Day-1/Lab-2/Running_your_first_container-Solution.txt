@@ -1,0 +1,21 @@
+- Task 1
+# docker run hello-world
+
+- Task 2
+# docker run --name bob_the_container -d -i ubuntu /bin/bash
+
+- Task 3
+a) # docker ps
+b) # docker ps -a
+c) # docker stop bob_the_container
+d) # docker start bob_the_container
+e) # docker exec -it bob_the_container /bin/bash
+
+- Task 4
+a) # docker run --name daemon_dave -d ubuntu /bin/sh -c "while true; do echo hello world; sleep 1; done"
+b) # docker logs daemon_dave
+c) # docker top daemon_dave
+d) # docker inspect daemon_dave 
+
+- Task 5
+# docker rm `docker ps -a -q`
