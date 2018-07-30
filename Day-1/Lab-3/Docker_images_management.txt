@@ -5,5 +5,3 @@
 - Task 3 --> Search for available puppet images in docker hub.
 
 - Task 4 --> Check layers in the puppet image from docker hub.
-
-- Task 5 --> 
