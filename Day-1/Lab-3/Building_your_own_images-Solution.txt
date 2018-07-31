@@ -1,0 +1,30 @@
+- Task 1 -->
+# docker run -it ubuntu:16.04 /bin/bash
+### from with in the container run :
+	# apt-get update
+	# apt-get install net-tools apache2
+	# ifconfig or ip a  --> to check network configuration
+	# exit
+### To build image from this container
+# docker commit -a "Mayank Sachan <mayank.sachan@koenig-solutions.com>" -m "A custom ubuntu image with apache2" CONTAINER_NAME 
+
+# docker tag IMAGE_ID IMAGE_TAG
+
+- Task 2 -->
+# mkdir custom_nginx_ubuntu
+# cd custom_nginx_ubuntu
+# vim Dockerfile
+	FROM ubuntu:14.04
+	MAINTAINER mayank sachan <mayank.sachan@koenig-solutions.com>
+	RUN apt-get update && apt-get install -y nginx
+	RUN echo "Hi, I am in your container" > /usr/lib/share/nginx/index.html
+	CMD ["nginx", "-g daemonoff;"]
+	EXPOSE 80
+
+# docker build -t mayank1509/ubuntu-nginx:14.04 .
+# docker login
+# docker push mayank1509/ubuntu-nginx:14.04
+
+-- Task 3 -->
+# docker run -p 80 -di mayank1509/ubuntu-nginx:14.04 
+# curl container_id
