@@ -18,7 +18,7 @@
 
 
 - Task 2 -->
-# docker run -d -p 5000:5000 registry --name registry
+# docker run -d -p 5000:5000 --name registry registry
 # docker ps
 # vim /usr/lib/systemd/system/docker.service
 	## make changes to this line "ExecStart=/usr/bin/dockerd"
