@@ -8,7 +8,7 @@
 ### To build image from this container
 # docker commit -a "Mayank Sachan <mayank.sachan@koenig-solutions.com>" -m "A custom ubuntu image with apache2" CONTAINER_NAME 
 
-# docker tag IMAGE_ID IMAGE_TAG
+# docker tag IMAGE_ID REPOSITORY:TAG
 
 - Task 2 -->
 # mkdir custom_nginx_ubuntu
@@ -17,7 +17,7 @@
 	FROM ubuntu:14.04
 	MAINTAINER mayank sachan <mayank.sachan@koenig-solutions.com>
 	RUN apt-get update && apt-get install -y nginx
-	RUN echo "Hi, I am in your container" > /usr/lib/share/nginx/index.html
+	RUN echo "Hi, I am in your container" > /usr/share/nginx/html/index.html
 	CMD ["nginx", "-g daemonoff;"]
 	EXPOSE 80
 
