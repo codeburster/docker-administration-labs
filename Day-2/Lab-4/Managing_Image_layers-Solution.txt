@@ -1,0 +1,37 @@
+- Task 1 --> 
+# mkdir custom_image
+# cd custom_image
+# echo "This is sample file added from host" > sample.txt
+
+# vim Dockerfile
+	FROM ubuntu:14.04
+	RUN apt-get update
+	ADD sample.txt /etc/sample.txt
+
+# docker build -t custom_image:latest .
+
+# docker history custom_image:latest
+
+# docker tag Layer_ID custom_image:latest
+
+# docker history custom_image:latest			--> To verify
+
+
+- Task 2 -->
+# docker run -d -p 5000:5000 registry --name registry
+# docker ps
+# vim /usr/lib/systemd/system/docker.service
+	## make changes to this line "ExecStart=/usr/bin/dockerd"
+	## As This "ExecStart=/usr/bin/dockerd --insecure-registry=registry.example.com:5000"
+# echo "Container_IP   registry.example.com" >> /etc/hosts
+# systemctl daemon-reload
+# systemctl restart docker
+
+
+- Task 3 -->
+## In order to push image from Task 1 must be tagged correctly :
+
+# docker tag custom_image:latest registry.example.com:5000/custom_image:latest
+
+# docker push registry.example.com:5000/custom_image:latest
+	
