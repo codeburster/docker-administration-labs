@@ -1,0 +1,19 @@
+- Task 1 -->
+##Build an image from ubuntu:14.04 base image with following requirements :
+	a) update the ubuntu base image
+	b) ADD a sample.txt file from host filesystem to /etc/sample.txt in container
+	c) Sample.txt should contain "This is sample file added from host"
+	d) Tag the image with your_rep_name:TAG
+	e) Briefly review image layers.
+	f) try to remove the layer that ADDs sample.txt file
+	
+- Task 2 -->
+## Create a private registry with following requirements:
+	a) Private registry should use latest registry image
+	b) Private registry should be accessible on 5000 port on host
+	c) If possible make it available by a FQDN on registry.example.com:5000
+
+
+- Task 3 -->
+## Push the image created in #task 1  to your private registry
+## Connect to your private registry and verify the image.
