@@ -1,0 +1,17 @@
+### Adminer is an image that gives you a frontend to connect to database and display graphically. It supports various database backends like- mysql, sqlite,mongodb etc
+
+### MySQL is a Database backend to store information persistenly in an organized way.
+
+
+- Task 1 --> Create a Database Container with following requirements :
+	a) Container should be based on latest MySQL image
+	b) All the information in MySQL should be stored persistently at /data/docker/mysql/database on host
+	c) Root user's password for MySQL service should be redhat@123
+	d) Container should have the name adminer_mysql_db
+
+- Task 2 --> Create a frontend container from adminer image with following requirements :
+	a) Use latest adminer image
+	b) Name your container as adminer
+	c) Make sure your adminer frontend is accessible at HOST_IP:9090
+
+- Task 3 --> In your browser on the host test Adminer connectivity with mysql container.

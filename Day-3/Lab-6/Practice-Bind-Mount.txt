@@ -1,0 +1,23 @@
+- Task 1 -->
+# Build a custom nginx image as following:
+	a) Use ubuntu:16.04 as base image
+	b) update ubuntu repository and install nginx package
+	c) /var/www/html directory should be created
+	d) Modify nginx configuration such that the root directory for website is /var/www/html/website (global.conf and nginx.conf files are provided to your for your use)
+	e) exposes container on port 80
+	f) Tag your image such that you upload it to your own private registry
+
+
+- Task 2 -->
+# Create a website as following:
+	a) create seperate directory with the name of your website on host
+	b) create an index.html with statement "This is a test website"
+	
+
+- Task 3 -->
+# Create container with image from #Task 1 such that:
+	a) container name is myweb
+	b) The container should host website from your website directory on host such that making changes to index.html on host should be reflected without the need to rebuild the image or container.
+
+- Task 4 -->
+# Change the content of your website/index.html to "This application has been changed..." and verify if the changes are reflected.

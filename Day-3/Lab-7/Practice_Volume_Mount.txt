@@ -1,0 +1,11 @@
+- Task 1 -->
+# Use Dockerfile to inscribe volume in a Docker image with following specs:
+	a) use latest registry image as base image
+	b) By default the images pushed to your private registry are non-persistent so make it persistent using volume
+	c) Resulting image should be named as persistent_registry
+
+- Task 2 -->
+# Launch a registry container with persistent_registry image
+
+- Task 3 -->
+# Push any existing docker image into your private registry and verify its stored in the volume mounted to the container

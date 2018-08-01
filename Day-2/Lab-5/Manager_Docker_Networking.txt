@@ -1,0 +1,19 @@
+- Task 1 -->
+# List and inspect the Docker networks
+
+- Task 2 -->
+# Create a container with no networking and name it no_network_container
+	a) Use ubuntu:16.04 image
+	b) Inspect details and verify container has no network access.
+
+- Task 3 -->
+# Create a container with host networking only and name it host_network_container
+	a) Use ubuntu:16.04 image
+	b) Use other terminal to verify details about the container
+
+- Task 4 -->
+# Create 2 new docker bridge network as follows :
+	a) Networks should be named priv_net_1 and priv_net_2 and should have subnet 20.0.0.0/16 and 30.0.0.0/16 respectively
+	b) Create one container in each network with name net1_container1 and net2_container2 respectively
+	c) Inspect and briefly observe containers and network configuration on both containers.
+	d) Also make sure both containers do not communicate to each other but has access to internet and container on docker0 network.

@@ -1,0 +1,15 @@
+- Task 1 -->
+# docker build -t persistent_registry .
+
+- Task 2 -->
+# make changes to /usr/lib/systemd/system/docker.service
+	ExecStart=/usr/bin/dockerd --insecure-registry=http://host_ip:5000
+# systemctl daemon-reload
+# systemctl restart docker
+# docker run -d -p 5000:5000 --name registry pesistent_registry
+# docker inspect registry	(Notice Mounts block)
+
+- Task 3 -->
+# docker tag nginx host_ip:5000/newimage
+# docker push host_ip:5000/newimage
+# ll /var/lib/docker/volumes/VOLUME_ID/_data/docker/registry/v2/repositories/
