@@ -1,0 +1,17 @@
+- Task 1 -->
+# docker pull mysql:latest
+# mkdir -p /data/docker/mysql/database
+# docker run -d --name adminer_mysql_db -v /data/docker/mysql/database:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=redhat@123 mysql
+
+
+- Task 2 -->
+# docker pull adminer:latest
+# docker run -d --name adminer -p 9090:8080 adminer
+
+- Task 3 -->
+# In Browser URL type in HOST_IP:9090
+	a) Server = adminer_mysql_db container's IP:3306
+	b) User = root
+	c) Password =redhat@123
+	d) Database = mysql
+	e) Check after submit if it fetches information from database
