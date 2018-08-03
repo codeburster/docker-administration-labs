@@ -1,0 +1,40 @@
+- Task 1 -->
+# Configure docker host and test by running a helloworld container.
+
+- Task 2 -->
+# Configure Git on the docker host. Feel free to use your username and email for git config.
+# Create a git repository at /git/repos/dockerdemo.git on host and initialize it.
+
+- Task 3 -->
+# Configure Jenkins on Docker host :
+	a) Create a yum repository for Jenkins can be found at https://pkg.jenkins.io/redhat/jenkins.repo
+	b) Associated keys for packages can be imported from https://pkg.jenkins.io/redhat/jenkins.io.key
+	c) Install jenkins along with dependent package java
+	d) Start and Enable Jenkins Service
+	e) Access Jenkins UI on your favourite web browser and configure it.
+
+- Task 4 -->
+# Build an image from Dockerfile with following requirements :
+        a) Use httpd as base image
+        b) Copy complete website source code from src directory to /usr/local/apache2/htdocs in the container 
+        c) Container should be exposed on port 80
+
+- Task 5 -->
+# Create a index.html file in src directory with following contents:
+	"This is test page."
+
+- Task 6 -->
+# Using Jenkin Web-UI create following :
+	a) Create a new project as dockerdemo and configure it to build source from git repository and to build from remote script.
+
+- Task 7 -->
+# Create a webhook for git such that whenever the developer commits change to source code in git repository the jenkins should trigger the build.
+
+- Task 8 -->
+# Create a script to remove existing container and build new image and then launch container from that newly created image which should be executed by Jenkins once the build is triggered after committing changes in index.html file.
+
+- Task 9 --> 
+# Now change the content in src/index.html file to "Integration with Jenkins works !!"
+	a) Commit the changes
+	b) Observe that image is build and new conatainer is built.
+	c) In your web browser access the application and very contents has changed.
