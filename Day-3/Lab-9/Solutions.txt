@@ -1,0 +1,134 @@
+###### Continuous Integration with Jenkins and Docker  ######
+#############################################################
+
+
+Step 1: Install the Docker Packages
+	# yum install docker -y
+
+Step 2: Start and Enable the Docker Service
+	# systemctl start docker
+	# systemctl enable docker
+	# systemctl status docker
+
+Step 3: Verify that, the docker host is ready to run the containers or not
+	# docker version
+	# docker pull hello-world
+	# docker run hello-world
+
+Step 4: Install and Configure Jenkins
+	# wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins.io/redhat-stable/jenkins.repo
+	# rpm --import http://pkg.jenkins.io/redhat-stable/jenkins.io.key
+	# yum install jenkins java-1.7.0-openjdk -y
+	# systemctl start jenkins
+	# systemctl enable jenkins
+	# systemctl status jenkins
+
+Step 5: Now you need to get the Initial Password to access Jenkins
+	# cat /var/lib/jenkins/secrets/initialAdminPassword
+
+Step 6: Now Open Web Browser and point to URL http://<Host_IP>:8080
+
+Step 7: Click on Install Suggested Plugins
+
+Step 8: Create User
+	UserName		:	admin
+	Password		:	password@123
+	Confirm Password 	:	password@123
+	Full Name		:	Mayank Sachan
+	E-mail Address		:	mayank.sachan@koenig-solutions.com
+
+Step 9: Install and Configure GIT
+	# yum install git -y
+	# mkdir -p /git/repos/project1.git
+	# chmod -R 777 /git/
+	# cd /git/repos/project1.git
+	# git config --global user.name "Mayank Sachan"
+	# git config --global user.email "mayank.sachan@koenig-solutions.com"
+	# git config --list
+	# git init
+
+Step 10: Create a Dockerfile to build Image to test Jenkins Integration
+	# vim Dockerfile
+		FROM httpd
+		COPY src/ /usr/local/apache2/htdocs
+		EXPOSE 80
+		:wq (save and exit)
+	# mkdir src/
+	# vim src/index.html
+		<html><body><h1>It works!</h1></body></html>
+		: wq (save and exit)
+
+Step 11: Create a script to use in post-commit hooks for git
+	# vim buildExecutable
+		cd /git/repos/project1.git
+		docker stop helloworld
+		docker rm helloworld
+		docker build -t hello-world /git/repos/project1.git/
+		docker run -d --name helloworld -p 80:80 hello-world
+		:wq (save and exit)
+	# chmod a+x buildExecutable
+
+Step 12: Now add the files and folders into Git and do the commit for changes
+	# git add .
+	# git commit -m "Initial Commit"
+	# git status
+
+Step 13: Step 8: Now Build the Image manually using Docker file for testing Purpose
+	# docker pull httpd
+	# docker build -t hello-world /git/repos/project1.git/
+
+Step 14: Now Run the Container name helloworld Manually
+	# docker run -d --name helloworld -p 80:80 hello-world
+	# docker ps
+
+Step 15: Now Open The Web Browser and point http://<Host_IP:80 to access the web page of the container.
+
+Step 16: Now Configure Continuous Integration with Jenkins. If you do any change in Git Repository and then Commit those changes, will trigger the 		Jenkins to Build the Containers accordingly.
+	# Point to URL http://<Host_IP>:8080
+	# Login to Jenkins
+
+Step 17: Now Click on User Name (Mayank Sachan) Drop Down Menu -> Configure
+	# Now Click on "Show API Token"
+	# Now Copy API Token and Click on Save
+	# Now Click on Jenkins -> New Items
+	# Enter an item name : dockerdemo => select Freestyle Project => OK
+	
+	# In General Section
+		Project Name	:	dockerdemo
+		Description	:	my docker demo
+
+	# In Source Code Management
+		Select git
+		Repository URL:		/git/repos/project1.git
+
+	# In Build Triggers Section
+		Select Trigger builds remotely (e.g., from scripts)
+		Authentication Token :	dockerdemo6789
+	  Now Click on Apply then Save
+
+Step 18: Now Create trigger build hook file
+	# cd /git/repos/project1.git/.git/hooks/
+	# vim post-commit
+
+		#!/bin/bash
+		curl --user admin:<API_TOKEN_YOU_COPIED_GOES_HERE> http://localhost:8080/job/dockerdemo/build?token=dockerdemo6789
+		/git/repos/project1.git/buildExecutable
+		echo "DockerDemo Triggered Successfully ..."
+	# chmod a+x post-commit
+
+Step 19: Do you remember, you have already deployed “helloworld” Container using the “hello-world” Image in previous steps
+	# docker ps
+	Now Open Web Browser and access the Container Web Page http://<Host_IP>
+
+Step 20: Now Lets Do the Changes in Git Repository
+	# cd /git/repos/project1.git/
+	# cat src/index.html
+		<h1>It works for commit 1 !</h1>
+	:wq (save and exit)
+
+step 21: Now add the changes in Git Repository and commit it
+	# git add .
+	# git commit -m "First Commit 1" .
+
+Step 22: Ready to be amazed :-)
+	# Refresh the browser  --> You should see the changes you made in your html page.
